@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/api/download/:id"
+  to = "https://lh3.googleusercontent.com/d/:id=s0"
+  status = 200
+  force = true

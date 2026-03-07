@@ -121,7 +121,7 @@
 .dlBtn:hover:not(:disabled) { opacity: 0.88; transform: scale(1.03); }
 .dlBtn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
 
-.spinnerSmall {
+.dlLoader {
   width: 16px;
   height: 16px;
   border: 2px solid rgba(255, 248, 231, 0.3);

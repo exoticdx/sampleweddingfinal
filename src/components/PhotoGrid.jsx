@@ -153,44 +153,32 @@ export default function PhotoGrid({ photos, onPhotoClick }) {
     setSelectedIds(new Set());
   };
 
-  const handleSilentDownload = async (photoId, fileName) => {
-    try {
-      // 1. Fetch via the Netlify Proxy
-      const response = await fetch(`/api/drive/${photoId}`);
-      if (!response.ok) throw new Error('Network response was not ok');
-
-      // 2. Convert to blob
-      const blob = await response.blob();
-
-      // 3. Create temp local URL
-      const url = window.URL.createObjectURL(blob);
-
-      // 4. Create invisible <a> tag and trigger download
-      const a = document.createElement('a');
-      a.style.display = 'none';
-      a.href = url;
-      a.download = fileName;
-      document.body.appendChild(a);
-      a.click();
-
-      // 5. Cleanup
-      document.body.removeChild(a);
-      window.URL.revokeObjectURL(url);
-    } catch (err) {
-      console.error(`Failed to trigger download for ${fileName}:`, err);
-    }
-  };
-
   const handleDownload = async () => {
     if (selectedIds.size === 0) return;
     setDownloading(true);
 
     const selected = photos.filter(p => selectedIds.has(p.id));
 
-    // For Google Drive links via Proxy
+    // For Google Drive links, we must rely on the browser's native download
+    // behavior to bypass CORS. We open them in new tabs/windows.
     for (const photo of selected) {
-      const fileName = photo.file_name || `photo_${photo.id}.jpg`;
-      await handleSilentDownload(photo.id, fileName);
+      try {
+        const a = document.createElement('a');
+        a.href = photo.url;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        // HTML5 download attribute is often ignored for cross-origin, 
+        // but adding it in case the browser respects it
+        a.download = photo.file_name || `photo_${photo.id}.jpg`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        
+        // Delay to prevent the browser's pop-up blocker from stopping multiple tabs
+        await new Promise(r => setTimeout(r, 600));
+      } catch (err) {
+        console.error(`Failed to trigger download for ${photo.file_name}:`, err);
+      }
     }
 
     setDownloading(false);
