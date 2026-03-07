@@ -7,6 +7,42 @@ export default function Lightbox({ photo, photos, onClose, onNav }) {
   const [slideDir, setSlideDir] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
+  const [isDownloading, setIsDownloading] = useState(false);
+
+  // Reset loading states when photo changes
+  useEffect(() => {
+    setIsLoading(true);
+    setIsDownloading(false);
+  }, [photo.id]);
+
+  const handleSilentDownload = async () => {
+    if (isDownloading) return;
+    setIsDownloading(true);
+    
+    try {
+      const fileName = photo.file_name || `photo_${photo.id}.jpg`;
+      const response = await fetch(`/api/drive/${photo.id}`);
+      if (!response.ok) throw new Error('Network response was not ok');
+
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+
+      const a = document.createElement('a');
+      a.style.display = 'none';
+      a.href = url;
+      a.download = fileName;
+      document.body.appendChild(a);
+      a.click();
+
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(url);
+    } catch (err) {
+      console.error(`Failed to trigger download for ${photo.file_name}:`, err);
+    } finally {
+      setIsDownloading(false);
+    }
+  };
+
   const goPrev = useCallback(() => {
     if (currentIndex > 0) { 
       setSlideDir('right'); 
@@ -45,8 +81,6 @@ export default function Lightbox({ photo, photos, onClose, onNav }) {
     if (delta >  60) goNext();
     if (delta < -60) goPrev();
   };
-
-  const downloadUrl = photo.url;
 
   return (
     <div className={styles.backdrop} onClick={onClose}>
@@ -105,21 +139,27 @@ export default function Lightbox({ photo, photos, onClose, onNav }) {
             </span>
           )}
         </div>
-        <a
-          href={downloadUrl}
-          download={photo.file_name}
-          target="_blank"
-          rel="noreferrer"
+        <button
+          onClick={handleSilentDownload}
+          disabled={isDownloading}
           className={styles.dlBtn}
           title="Download photo"
         >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-            <polyline points="7 10 12 15 17 10"/>
-            <line x1="12" y1="15" x2="12" y2="3"/>
-          </svg>
-          Download
-        </a>
+          {isDownloading ? (
+            <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span className={styles.spinnerSmall} /> Downloading...
+            </span>
+          ) : (
+            <>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Download
+            </>
+          )}
+        </button>
       </div>
     </div>
   );

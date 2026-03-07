@@ -115,5 +115,18 @@
   font-weight: 600;
   transition: opacity var(--transition), transform var(--transition);
   text-decoration: none;
+  cursor: pointer;
+  border: none;
 }
-.dlBtn:hover { opacity: 0.88; transform: scale(1.03); }
+.dlBtn:hover:not(:disabled) { opacity: 0.88; transform: scale(1.03); }
+.dlBtn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+
+.spinnerSmall {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 248, 231, 0.3);
+  border-top-color: #FFF8E7;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+}
