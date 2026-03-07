@@ -1,9 +1,9 @@
 {
   "gallery": {
-    "title": "wedding",
+    "title": "Wedding",
     "groom_name": "Groom",
     "bride_name": "Bride",
-    "event_date": "06 Mar 2026",
+    "event_date": "07 Mar 2026",
     "expires": "",
     "cover_photo_url": "https://lh3.googleusercontent.com/d/1ZFsRzH3ntFGhb-69AEqomW4ncSt94fXq=s400",
     "total_photos": 52,
@@ -19,49 +19,49 @@
     "whatsapp": "",
     "instagram": "",
     "facebook": "",
-    "cta_text": "Book for your next event"
+    "cta_text": "Hire Us"
   },
   "event_sections": [
     {
       "id": "haldi",
       "label": "Haldi",
-      "cover_url": "https://lh3.googleusercontent.com/d/1wqoU4xWT7wKkTHAdJCw1hh3fS3DhaGpO=s400",
-      "photo_count": 10,
+      "cover_url": "https://lh3.googleusercontent.com/d/1V7gQk3QIa41HSV8NUg_S0H7C0qg4iOkg=s400",
+      "photo_count": 11,
       "icon": "🟡"
     },
     {
       "id": "mehendi",
       "label": "Mehendi",
-      "cover_url": "https://lh3.googleusercontent.com/d/1nfk2qN5RmKHIhOWz2QJOQc9xASQ1wCJT=s400",
-      "photo_count": 11,
+      "cover_url": "https://lh3.googleusercontent.com/d/1ZFsRzH3ntFGhb-69AEqomW4ncSt94fXq=s400",
+      "photo_count": 10,
       "icon": "🌿"
     },
     {
       "id": "sangeet",
       "label": "Sangeet",
-      "cover_url": "https://lh3.googleusercontent.com/d/1O7cbtzKZhUrUl2M-tsLcJm0V7yPXpL4z=s400",
-      "photo_count": 10,
+      "cover_url": "https://lh3.googleusercontent.com/d/1dVouQ8f-c1pz9ADrtpAu2DBdNP3Q4FHp=s400",
+      "photo_count": 9,
       "icon": "💃"
     },
     {
       "id": "wedding",
       "label": "Wedding",
-      "cover_url": "https://lh3.googleusercontent.com/d/1V7gQk3QIa41HSV8NUg_S0H7C0qg4iOkg=s400",
-      "photo_count": 10,
+      "cover_url": "https://lh3.googleusercontent.com/d/150JL6KIwL3QHt6yY-z2HAPw3Y5C4pOwd=s400",
+      "photo_count": 12,
       "icon": "👑"
     },
     {
       "id": "reception",
       "label": "Reception",
-      "cover_url": "https://lh3.googleusercontent.com/d/1ZFsRzH3ntFGhb-69AEqomW4ncSt94fXq=s400",
-      "photo_count": 8,
+      "cover_url": "https://lh3.googleusercontent.com/d/1Yf9kCUyEfKD75lXRhPNzFQOcXSPfMPPL=s400",
+      "photo_count": 6,
       "icon": "🥂"
     },
     {
       "id": "others",
       "label": "All Events",
-      "cover_url": "https://lh3.googleusercontent.com/d/1dVouQ8f-c1pz9ADrtpAu2DBdNP3Q4FHp=s400",
-      "photo_count": 3,
+      "cover_url": "https://lh3.googleusercontent.com/d/1O94t0ZJ3q_N4KlUQnbccd8GKYw3fG9Ie=s400",
+      "photo_count": 4,
       "icon": "🎉"
     }
   ],
@@ -74,7 +74,7 @@
       "width": 2621,
       "height": 3926,
       "aspect_ratio": 0.6676,
-      "event_section": "reception",
+      "event_section": "mehendi",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -1118,7 +1118,7 @@
       "width": 5616,
       "height": 3744,
       "aspect_ratio": 1.5,
-      "event_section": "reception",
+      "event_section": "wedding",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -1648,7 +1648,7 @@
       "width": 4016,
       "height": 6016,
       "aspect_ratio": 0.6676,
-      "event_section": "sangeet",
+      "event_section": "mehendi",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -2692,7 +2692,7 @@
       "width": 2832,
       "height": 4240,
       "aspect_ratio": 0.6679,
-      "event_section": "others",
+      "event_section": "sangeet",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -3736,7 +3736,7 @@
       "width": 5184,
       "height": 3456,
       "aspect_ratio": 1.5,
-      "event_section": "haldi",
+      "event_section": "wedding",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -4266,7 +4266,7 @@
       "width": 4400,
       "height": 3406,
       "aspect_ratio": 1.2918,
-      "event_section": "mehendi",
+      "event_section": "wedding",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -4796,7 +4796,7 @@
       "width": 4016,
       "height": 6016,
       "aspect_ratio": 0.6676,
-      "event_section": "haldi",
+      "event_section": "wedding",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -5840,7 +5840,7 @@
       "width": 2667,
       "height": 4000,
       "aspect_ratio": 0.6667,
-      "event_section": "sangeet",
+      "event_section": "mehendi",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -6884,7 +6884,7 @@
       "width": 5460,
       "height": 3989,
       "aspect_ratio": 1.3688,
-      "event_section": "wedding",
+      "event_section": "haldi",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -7928,7 +7928,7 @@
       "width": 3648,
       "height": 5472,
       "aspect_ratio": 0.6667,
-      "event_section": "others",
+      "event_section": "wedding",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -8972,7 +8972,7 @@
       "width": 4480,
       "height": 6720,
       "aspect_ratio": 0.6667,
-      "event_section": "mehendi",
+      "event_section": "wedding",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -10016,7 +10016,7 @@
       "width": 5472,
       "height": 3648,
       "aspect_ratio": 1.5,
-      "event_section": "wedding",
+      "event_section": "sangeet",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -16200,7 +16200,7 @@
       "width": 5184,
       "height": 3456,
       "aspect_ratio": 1.5,
-      "event_section": "wedding",
+      "event_section": "haldi",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -18288,7 +18288,7 @@
       "width": 2800,
       "height": 1566,
       "aspect_ratio": 1.788,
-      "event_section": "haldi",
+      "event_section": "wedding",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -19862,7 +19862,7 @@
       "width": 3840,
       "height": 5760,
       "aspect_ratio": 0.6667,
-      "event_section": "reception",
+      "event_section": "haldi",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -20392,7 +20392,7 @@
       "width": 6016,
       "height": 4016,
       "aspect_ratio": 1.498,
-      "event_section": "mehendi",
+      "event_section": "wedding",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -20922,7 +20922,7 @@
       "width": 4000,
       "height": 2667,
       "aspect_ratio": 1.4998,
-      "event_section": "sangeet",
+      "event_section": "mehendi",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -21452,7 +21452,7 @@
       "width": 3744,
       "height": 5616,
       "aspect_ratio": 0.6667,
-      "event_section": "mehendi",
+      "event_section": "haldi",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -21982,7 +21982,7 @@
       "width": 3936,
       "height": 2624,
       "aspect_ratio": 1.5,
-      "event_section": "wedding",
+      "event_section": "haldi",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -23026,7 +23026,7 @@
       "width": 2799,
       "height": 1863,
       "aspect_ratio": 1.5024,
-      "event_section": "sangeet",
+      "event_section": "haldi",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -23556,7 +23556,7 @@
       "width": 6240,
       "height": 4160,
       "aspect_ratio": 1.5,
-      "event_section": "reception",
+      "event_section": "haldi",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -24600,7 +24600,7 @@
       "width": 4872,
       "height": 3543,
       "aspect_ratio": 1.3751,
-      "event_section": "mehendi",
+      "event_section": "reception",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -25644,7 +25644,7 @@
       "width": 5178,
       "height": 2728,
       "aspect_ratio": 1.8981,
-      "event_section": "wedding",
+      "event_section": "others",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -26174,7 +26174,7 @@
       "width": 4735,
       "height": 7095,
       "aspect_ratio": 0.6674,
-      "event_section": "mehendi",
+      "event_section": "sangeet",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -26704,7 +26704,7 @@
       "width": 2832,
       "height": 3936,
       "aspect_ratio": 0.7195,
-      "event_section": "wedding",
+      "event_section": "haldi",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -29322,7 +29322,7 @@
       "width": 7952,
       "height": 5304,
       "aspect_ratio": 1.4992,
-      "event_section": "reception",
+      "event_section": "sangeet",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -29852,7 +29852,7 @@
       "width": 3456,
       "height": 2304,
       "aspect_ratio": 1.5,
-      "event_section": "sangeet",
+      "event_section": "reception",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -30896,7 +30896,7 @@
       "width": 5616,
       "height": 3744,
       "aspect_ratio": 1.5,
-      "event_section": "mehendi",
+      "event_section": "reception",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -32470,7 +32470,7 @@
       "width": 2800,
       "height": 1868,
       "aspect_ratio": 1.4989,
-      "event_section": "sangeet",
+      "event_section": "reception",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -33000,7 +33000,7 @@
       "width": 5461,
       "height": 8192,
       "aspect_ratio": 0.6666,
-      "event_section": "wedding",
+      "event_section": "reception",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -42316,7 +42316,7 @@
       "width": 5184,
       "height": 3456,
       "aspect_ratio": 1.5,
-      "event_section": "reception",
+      "event_section": "mehendi",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -42846,7 +42846,7 @@
       "width": 4256,
       "height": 2568,
       "aspect_ratio": 1.6573,
-      "event_section": "haldi",
+      "event_section": "sangeet",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -43890,7 +43890,7 @@
       "width": 4000,
       "height": 2667,
       "aspect_ratio": 1.4998,
-      "event_section": "reception",
+      "event_section": "wedding",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -44420,7 +44420,7 @@
       "width": 4160,
       "height": 6240,
       "aspect_ratio": 0.6667,
-      "event_section": "haldi",
+      "event_section": "mehendi",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -45464,7 +45464,7 @@
       "width": 6720,
       "height": 4480,
       "aspect_ratio": 1.5,
-      "event_section": "sangeet",
+      "event_section": "mehendi",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -45994,7 +45994,7 @@
       "width": 5800,
       "height": 3867,
       "aspect_ratio": 1.4999,
-      "event_section": "sangeet",
+      "event_section": "haldi",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -47552,7 +47552,7 @@
       "width": 1334,
       "height": 2000,
       "aspect_ratio": 0.667,
-      "event_section": "mehendi",
+      "event_section": "others",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -48082,7 +48082,7 @@
       "width": 5472,
       "height": 3648,
       "aspect_ratio": 1.5,
-      "event_section": "haldi",
+      "event_section": "wedding",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -48612,7 +48612,7 @@
       "width": 6048,
       "height": 4024,
       "aspect_ratio": 1.503,
-      "event_section": "haldi",
+      "event_section": "sangeet",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -49672,7 +49672,7 @@
       "width": 1334,
       "height": 2000,
       "aspect_ratio": 0.667,
-      "event_section": "haldi",
+      "event_section": "wedding",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -50716,7 +50716,7 @@
       "width": 3648,
       "height": 2432,
       "aspect_ratio": 1.5,
-      "event_section": "wedding",
+      "event_section": "sangeet",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -51246,7 +51246,7 @@
       "width": 3744,
       "height": 5616,
       "aspect_ratio": 0.6667,
-      "event_section": "mehendi",
+      "event_section": "others",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [
@@ -52290,7 +52290,7 @@
       "width": 5616,
       "height": 3744,
       "aspect_ratio": 1.5,
-      "event_section": "wedding",
+      "event_section": "mehendi",
       "taken_at": null,
       "gps": null,
       "face_embeddings": [

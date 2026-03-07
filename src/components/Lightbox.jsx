@@ -103,11 +103,22 @@ export default function Lightbox({ photo, photos, onClose, onNav }) {
             </span>
           )}
         </div>
-        <a
-          href={photo.url}
-          download={photo.file_name || `photo_${photo.id}.jpg`}
-          target="_blank"
-          rel="noreferrer"
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            try {
+              const iframe = document.createElement('iframe');
+              iframe.style.display = 'none';
+              iframe.src = photo.url;
+              document.body.appendChild(iframe);
+              
+              setTimeout(() => {
+                document.body.removeChild(iframe);
+              }, 5000);
+            } catch (err) {
+              console.error(`Failed to trigger download for ${photo.file_name}:`, err);
+            }
+          }}
           className={styles.dlBtn}
           title="Download photo"
         >
@@ -117,7 +128,7 @@ export default function Lightbox({ photo, photos, onClose, onNav }) {
             <line x1="12" y1="15" x2="12" y2="3"/>
           </svg>
           Download
-        </a>
+        </button>
       </div>
     </div>
   );
