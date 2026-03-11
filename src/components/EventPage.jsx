@@ -24,6 +24,7 @@ export default function EventPage() {
 
   // ── State ──
   const [loading, setLoading] = useState(false);
+  const [loadingProgress, setLoadingProgress] = useState(null);
   const [selfieMatchIds, setSelfieMatchIds] = useState(null);
   const [lightboxPhoto, setLightboxPhoto] = useState(null);
 
@@ -40,7 +41,7 @@ export default function EventPage() {
 
   return (
     <>
-      <LoadingOverlay visible={loading} />
+      <LoadingOverlay visible={loading} progress={loadingProgress} />
 
       {/* ── Header bar ── */}
       <header className={styles.header}>
@@ -69,6 +70,7 @@ export default function EventPage() {
           allPhotos={isAll ? photos : photos.filter(p => p.event_section === sectionId)}
           onResult={handleSelfieResult}
           onLoadingChange={setLoading}
+          onProgressChange={setLoadingProgress}
           isActive={selfieMatchIds !== null}
           matchCount={selfieMatchIds?.length ?? 0}
         />

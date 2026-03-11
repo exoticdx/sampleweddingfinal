@@ -61,7 +61,7 @@ async function extractEmbedding(file) {
 }
 
 // ── Component ─────────────────────────────────────────────────────────────────
-export default function SelfieFilter({ allPhotos, onResult, onLoadingChange, isActive, matchCount }) {
+export default function SelfieFilter({ allPhotos, onResult, onLoadingChange, onProgressChange, isActive, matchCount }) {
   const [phase,    setPhase]    = useState('idle'); // idle|loading|done|error
   const [errorMsg, setErrorMsg] = useState('');
   const [preview,  setPreview]  = useState(null);
@@ -77,6 +77,7 @@ export default function SelfieFilter({ allPhotos, onResult, onLoadingChange, isA
     setPhase('loading');
     setErrorMsg('');
     onLoadingChange?.(true);
+    onProgressChange?.({ phase: 'detecting', current: 0, total: 0 });
 
     try {
       // 1. Get ArcFace embedding for the selfie via local API
@@ -85,23 +86,25 @@ export default function SelfieFilter({ allPhotos, onResult, onLoadingChange, isA
       // 2. Compare against pre-stored embeddings in data.json (non-blocking)
       const matchedIds = [];
       let processed = 0;
-      
-      const CHUNK_SIZE = 50; 
+
+      const CHUNK_SIZE = 50;
 
       let totalPhotos = allPhotos.length;
-      
+      onProgressChange?.({ phase: 'scanning', current: 0, total: totalPhotos });
+
       for (let i = 0; i < totalPhotos; i += CHUNK_SIZE) {
         const end = Math.min(i + CHUNK_SIZE, totalPhotos);
-        
+
         for (let j = i; j < end; j++) {
           if (photoMatchesSelfie(selfieEmb, allPhotos[j])) {
             matchedIds.push(allPhotos[j].id);
           }
         }
-        
+
         processed = end;
         setScanProgress({ current: processed, total: totalPhotos });
-        
+        onProgressChange?.({ phase: 'scanning', current: processed, total: totalPhotos });
+
         // Yield to the browser's render pipeline so the UI can update
         await new Promise(resolve => requestAnimationFrame(resolve));
       }
@@ -170,12 +173,10 @@ export default function SelfieFilter({ allPhotos, onResult, onLoadingChange, isA
         {/* Loading (API call) */}
         {phase === 'loading' && (
           <span className={styles.status}>
-            {/* <p>hello stupid fuck</p> */}
-            <span className={styles.spinner} /> 
-            hello
-            {scanProgress.total > 0 
+            <span className={styles.spinner} />
+            {scanProgress.total > 0
               ? `Scanning ${scanProgress.current} / ${scanProgress.total} photos...`
-              : `Detecting your face...`}
+              : `Reading your face...`}
           </span>
         )}
 

@@ -11,6 +11,7 @@ import styles from './HomePage.module.css';
 export default function HomePage() {
   const { gallery, photographer, event_sections, photos } = galleryData;
   const [loading, setLoading] = useState(false);
+  const [loadingProgress, setLoadingProgress] = useState(null);
   const [selfieMatchIds, setSelfieMatchIds] = useState(null);
   const momentsRef = useRef(null);
 
@@ -41,7 +42,7 @@ export default function HomePage() {
 
   return (
     <>
-      <LoadingOverlay visible={loading} />
+      <LoadingOverlay visible={loading} progress={loadingProgress} />
 
       {/* ── Hero ── */}
       <PhotographerBanner
@@ -56,6 +57,7 @@ export default function HomePage() {
           allPhotos={photos}
           onResult={handleSelfieResult}
           onLoadingChange={setLoading}
+          onProgressChange={setLoadingProgress}
           isActive={selfieMatchIds !== null}
           matchCount={selfieMatchIds?.length ?? 0}
         />

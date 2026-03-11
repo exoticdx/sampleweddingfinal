@@ -1,8 +1,7 @@
-/* Cinzel — elegant display serif, similar look to Arcadian */
+/* Cinzel — elegant display serif */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&display=swap');
 
-/* ── Hero — Deep crimson damask + centered serif layout ── */
-
+/* ── Hero — Parallax container ── */
 .hero {
   position: relative;
   width: 100%;
@@ -11,27 +10,72 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  /* Use the uploaded damask background image */
-  background: #800030 url('/hero-bg.png') center center / cover no-repeat;
+  /* overflow visible so heart layers extend into sections below */
+  overflow: visible;
+  /* Layer 1: gradient background */
+  background: linear-gradient(135deg, #f9c60e, #fe3709);
+  /* Higher stacking context so heart layers render above the next section */
+  z-index: 2;
 }
 
-/* ── Damask / floral mandala background pattern ── */
-.damaskLayer {
-  /* Hidden — background image is on .hero directly */
-  display: none;
-}
-
-/* ── Soft radial vignette (darker edges) ── */
-.vignette {
+/* ── Parallax image layers ── */
+.layer2,
+.layer3,
+.layer4 {
   position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: radial-gradient(ellipse 70% 70% at 50% 50%, transparent 40%, rgba(80,0,20,0.55) 100%);
+  top: 0;
+  left: 0;
+  right: 0;
+  /* Extend beyond the hero so images are visible over sections below */
+  height: 170vh;
   pointer-events: none;
+  will-change: transform;
 }
 
-/* ── Centre content stack ── */
+.layer2 {
+  z-index: 1;
+}
+
+.layer3 {
+  z-index: 2;
+}
+
+.layer4 {
+  z-index: 3;
+}
+
+/* Appear animation on the img, not the layer div,
+   so it doesn't conflict with the JS parallax transform */
+.layer2 .layerImg {
+  animation: layerAppear 1.2s cubic-bezier(0.25, 0.1, 0.25, 1) 0.3s both;
+}
+
+.layer3 .layerImg {
+  animation: layerAppear 1.4s cubic-bezier(0.25, 0.1, 0.25, 1) 0.6s both;
+}
+
+.layer4 .layerImg {
+  animation: layerAppear 1.4s cubic-bezier(0.25, 0.1, 0.25, 1) 0.9s both;
+}
+
+@keyframes layerAppear {
+  from {
+    opacity: 0;
+    transform: scale(1.15);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.layerImg {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+/* ── Centre text stack (Layer 4) ── */
 .center {
   position: relative;
   z-index: 10;
@@ -45,49 +89,15 @@
   max-width: 580px;
 }
 
-/* ── Ganesh icon ── */
-.ganeshWrap {
-  margin-bottom: 12px;
-}
-.ganeshIcon {
-  width: 100px;
-  height: 100px;
-  margin: 0 auto;
-  filter: drop-shadow(0 0 12px rgba(245,220,180,0.3));
-}
-.sanskritText {
-  font-family: 'Noto Serif Devanagari', 'Cormorant Garamond', serif;
-  font-size: clamp(18px, 3vw, 26px);
-  font-weight: 400;
-  letter-spacing: 0.06em;
-  color: #d3a100;
-  text-shadow: 0 0 16px rgba(211,161,0,0.4);
-  margin: 0;
-}
-
-/* ── Lines image (above & below names) ── */
-.linesImg {
-  width: 100%;
-  max-width: 320px;
-  display: block;
-  margin: 0 auto;
-  opacity: 0.9;
-}
-.linesFlip {
-  transform: scaleY(-1);
-}
-
 /* ── Groom name ── */
 .groomName {
   font-family: 'Cinzel', 'Cormorant Garamond', serif;
   font-size: clamp(52px, 9vw, 92px);
   font-weight: 400;
-  font-style: normal;
   letter-spacing: 0.01em;
-  color: #FFFFFF;
+  color: #ffffff;
   line-height: 1.0;
   margin: 2px 0;
-  text-shadow: 0 2px 24px rgba(80,0,20,0.4);
 }
 
 /* ── "weds" cursive script ── */
@@ -96,7 +106,7 @@
   font-size: clamp(22px, 4vw, 38px);
   font-weight: 300;
   font-style: italic;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255, 255, 255, 0.75);
   letter-spacing: 0.06em;
   margin: -6px 0;
 }
@@ -106,12 +116,10 @@
   font-family: 'Cinzel', 'Cormorant Garamond', serif;
   font-size: clamp(52px, 9vw, 92px);
   font-weight: 400;
-  font-style: normal;
   letter-spacing: 0.01em;
-  color: #FFFFFF;
+  color: #ffffff;
   line-height: 1.0;
   margin: 2px 0;
-  text-shadow: 0 2px 24px rgba(80,0,20,0.4);
 }
 
 /* ── Date ── */
@@ -120,7 +128,7 @@
   font-size: 13px;
   font-weight: 300;
   letter-spacing: 0.22em;
-  color: rgba(255,255,255,0.65);
+  color: rgba(255, 255, 255, 0.7);
   margin: 4px 0;
 }
 
@@ -130,11 +138,11 @@
   font-size: 12px;
   font-weight: 300;
   letter-spacing: 0.06em;
-  color: rgba(255,255,255,0.35);
+  color: rgba(255, 255, 255, 0.5);
   margin-top: 8px;
 }
 .photographerLine strong {
-  color: rgba(201,160,106,0.8);
+  color: rgba(255, 255, 255, 0.8);
   font-weight: 400;
 }
 
@@ -156,11 +164,11 @@
   font-size: 13px;
   font-weight: 300;
   letter-spacing: 0.12em;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255, 255, 255, 0.6);
   transition: color 0.3s, transform 0.3s;
 }
 .scrollDown:hover {
-  color: rgba(255,255,255,0.9);
+  color: rgba(255, 255, 255, 0.9);
   transform: translateX(-50%) translateY(3px);
 }
 .scrollArrow {
@@ -175,5 +183,4 @@
 /* ── Responsive ── */
 @media (max-width: 480px) {
   .center { padding-bottom: 100px; }
-  .ganeshIcon { width: 56px; height: 64px; }
 }

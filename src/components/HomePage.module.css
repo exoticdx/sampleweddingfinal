@@ -4,9 +4,12 @@
 
 /* ── Find My Photos Section ── */
 .findSection {
-  background: var(--cream);
+  position: relative;
+  z-index: 1;
   padding: 56px 24px 32px;
   text-align: center;
+  /* No background — hero's #fffbf1 and page bg show through,
+     heart layers from hero float on top via higher z-index */
 }
 
 /* ── Your Moments Section ── */
