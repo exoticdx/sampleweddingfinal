@@ -305,7 +305,10 @@ export default function HomePage() {
         <section className={styles.perfectMomentsSection}>
           <div className={styles.sectionHeader}>
             <div className={styles.ornamentLine} />
-            <h2 className={styles.sectionLabel}>Perfect Moments</h2>
+            <div className={styles.titleWrapper}>
+              <h2 className={styles.sectionLabel}>Perfect Moments</h2>
+              <p className={styles.shotBySub}>shot by {photographer.name}</p>
+            </div>
             <div className={styles.ornamentLine} />
           </div>
           
@@ -321,6 +324,31 @@ export default function HomePage() {
                 />
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* ── Couple's Letter Section ── */}
+        <section className={styles.letterSection}>
+          <div className={styles.sectionHeader}>
+            <div className={styles.ornamentLine} />
+            <div className={styles.titleWrapper}>
+              <h2 className={styles.sectionLabel}>Couple&apos;s Letter</h2>
+              <p className={styles.shotBySub}>shot by {photographer.name}</p>
+            </div>
+            <div className={styles.ornamentLine} />
+          </div>
+          
+          <div className={styles.letterContainer}>
+            <p className={styles.letterText}>
+              To our dearest family and friends,
+              <br /><br />
+              Thank you for being part of our journey. From our first date to this incredible milestone, your love and support have meant the world to us. We are so thrilled to share the memories of our most special day with all the people who make our lives truly complete.
+              <br /><br />
+              With all our love,
+            </p>
+            <p className={styles.letterSignatures}>
+              {gallery.bride_name} & {gallery.groom_name}
+            </p>
           </div>
         </section>
 

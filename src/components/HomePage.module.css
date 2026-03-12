@@ -44,15 +44,32 @@
   background: linear-gradient(to right, transparent, var(--gold), transparent);
   opacity: 0.5;
 }
+
+.titleWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
 .sectionLabel {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(40px, 4vw, 38px);
   font-weight: 600;
   font-style: italic;
-  /* color: var(--royal-blue); */
   color: #a080ba;
   white-space: nowrap;
   letter-spacing: 0.01em;
+  line-height: 1;
+}
+
+.shotBySub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: #cbb4db; /* Lighter shade of the primary accent */
+  letter-spacing: 0.05em;
+  margin: 0;
 }
 
 /* ── Card Grid (legacy – kept for reference) ── */
@@ -213,7 +230,8 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--border);
+  /* background: var(--border); */
+  background: #a080ba;
   transition: background 0.35s ease, transform 0.35s ease;
 }
 
@@ -443,6 +461,40 @@
 
 .masonryImage:hover {
   transform: scale(1.02);
+}
+
+/* ── Couple's Letter Section ── */
+.letterSection {
+  padding: 40px 24px 80px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.letterContainer {
+  background: var(--cream, #fcfbf9);
+  border: 1px solid var(--border, #e5e0d8);
+  padding: 48px 32px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  position: relative;
+}
+
+.letterText {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; /* Increased slightly for the script-style font */
+  line-height: 1.6;
+  font-style: italic; /* Italics fit the "letter" vibe nicely */
+  color: var(--text-color, #4a4a4a);
+  margin-bottom: 24px;
+}
+
+.letterSignatures {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-style: italic;
+  font-weight: 600;
+  color: #a080ba;
 }
 
 /* ── Responsive ── */
