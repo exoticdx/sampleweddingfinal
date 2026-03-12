@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd \"A:/YeildOps/SAMPLES/new photo studio - Copy/client-gallery - Copy\" && npx vite build 2>&1 | head -30)",
+      "Bash(cd \"A:/YeildOps/SAMPLES/new photo studio - Copy/client-gallery - Copy\" && npx vite build 2>&1 | tail -5)",
+      "Bash(cd \"A:/YeildOps/SAMPLES/new photo studio - Copy/client-gallery - Copy\" && npx vite build 2>&1 | tail -3)"
+    ]
+  }
+}

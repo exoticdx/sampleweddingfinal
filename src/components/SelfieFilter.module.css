@@ -23,8 +23,9 @@
   align-items: center;
   gap: 8px;
   padding: 12px 28px;
-  background: var(--royal-blue);
-  border: 1.5px solid rgba(201,160,106,0.4);
+  /* background: var(--royal-blue); */
+  background: #a080ba;
+  /* border: 1.5px solid rgba(201,160,106,0.4); */
   border-radius: 100px;
   font-family: 'Cormorant Garamond', serif;
   font-size: 16px;
@@ -146,6 +147,6 @@
   font-size: 15px;
   font-style: italic;
   color: var(--gold-deep);
-  opacity: 0.75;
+  opacity: 1;
   letter-spacing: 0.03em;
 }

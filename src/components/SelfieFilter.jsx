@@ -166,7 +166,7 @@ export default function SelfieFilter({ allPhotos, onResult, onLoadingChange, onP
         {/* Idle */}
         {phase === 'idle' && !isActive && (
           <label htmlFor="selfieInput" className={styles.uploadBtn}>
-            <span>📸</span> Find My Photos
+            <span>📸</span> Find Your Photos
           </label>
         )}
 

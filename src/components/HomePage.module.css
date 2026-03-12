@@ -46,19 +46,188 @@
 }
 .sectionLabel {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(24px, 4vw, 38px);
+  font-size: clamp(40px, 4vw, 38px);
   font-weight: 600;
   font-style: italic;
-  color: var(--royal-blue);
+  /* color: var(--royal-blue); */
+  color: #a080ba;
   white-space: nowrap;
   letter-spacing: 0.01em;
 }
 
-/* ── Card Grid ── */
+/* ── Card Grid (legacy – kept for reference) ── */
 .cardGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 24px;
+}
+
+/* ══════════════════════════════════════════════════
+   Wheel Carousel
+   ══════════════════════════════════════════════════ */
+
+/* Tall scroll runway — height set inline via JS */
+.wheelRunway {
+  position: relative;
+}
+
+/* Sticky viewport — stays pinned while runway scrolls */
+.wheelSticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Layer 1: Cards */
+.wheelCardsLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Layer 2: Gradient mask — white edges with transparent window */
+.wheelGradientMask {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(to bottom,
+    #ffffff 0%,
+    #ffffff 10%,
+    transparent 20%,
+    transparent 80%,
+    #ffffff 90%,
+    #ffffff 100%
+  );
+}
+
+/* Layer 3: UI — title, dots, arrow */
+.wheelUiLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 24px 16px;
+}
+
+/* 3D perspective stage — overflow visible so cards peek above/below */
+.wheelStage {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+  overflow: visible;
+}
+
+/* Individual carousel card */
+.wheelCard {
+  position: absolute;
+  width: 100%;
+  /* aspect-ratio: 1 / 1; */
+  border-radius: 0;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background: #fff;
+  box-shadow: 0 8px 40px rgba(122, 2, 50, 0.10), 0 2px 12px rgba(0,0,0,0.06);
+  transform-origin: center center;
+  will-change: transform, opacity;
+  transition: box-shadow 0.3s ease;
+}
+.wheelCard:hover {
+  box-shadow: 0 14px 52px rgba(122, 2, 50, 0.18), 0 4px 16px rgba(0,0,0,0.08);
+}
+
+/* Layer 1: Full square image */
+.wheelCardImage {
+  width: calc(100%-20px);
+  /* height: 100%; */
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  display: block;
+  margin: 10px;
+}
+
+/* Layer 2: Text overlay centered on image */
+.wheelCardTextOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 1;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.30);
+  padding: 20px;
+}
+.wheelCardName {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+.wheelCardCount {
+  font-size: 13px;
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+}
+
+/* Layer 3: Frame.png overlay */
+.wheelCardFrame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Pagination dots */
+.wheelNav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 0;
+}
+.wheelDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: background 0.35s ease, transform 0.35s ease;
+}
+
+/* Scroll-down arrow */
+.wheelArrow {
+  padding-bottom: 10px;
+  color: var(--gold);
+  opacity: 0.7;
+  animation: wheelBounce 2s ease-in-out infinite;
+  transition: opacity 0.3s ease;
+}
+@keyframes wheelBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
 }
 
 /* ── Individual Event Card ── */
@@ -226,7 +395,8 @@
   font-size: clamp(32px, 6vw, 56px);
   font-weight: 600;
   font-style: italic;
-  color: var(--royal-blue);
+  /* color: var(--royal-blue); */
+  color: '#a080ba';
   line-height: 1.15;
   margin-bottom: 20px;
 }
@@ -244,6 +414,37 @@
   font-style: italic;
 }
 
+/* ── Perfect Moments Section ── */
+.perfectMomentsSection {
+  padding: 40px 24px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.masonryGrid {
+  column-count: 3;
+  column-gap: 16px;
+  padding: 0 10px;
+}
+
+.masonryItem {
+  break-inside: avoid;
+  margin-bottom: 16px; 
+}
+
+.masonryImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); /* Optional drop shadow */
+  transition: transform 0.3s ease;
+}
+
+.masonryImage:hover {
+  transform: scale(1.02);
+}
+
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .thankYouSection { height: 45vh; }
@@ -254,4 +455,19 @@
     gap: 18px;
   }
   .momentsSection { padding: 24px 16px 48px; }
+
+  /* Wheel carousel mobile */
+  .wheelUiLayer { padding: 24px 16px 12px; }
+  .wheelStage { max-width: 92%; }
+  .wheelCardName { font-size: 22px; }
+
+  /* Masonry Grid Mobile */
+  .masonryGrid {
+    /* Keep 3 columns on mobile */
+    column-gap: 8px;
+  }
+  .masonryItem {
+    margin-bottom: 8px;
+  }
 }
+
